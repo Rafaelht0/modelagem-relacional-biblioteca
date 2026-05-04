@@ -118,22 +118,6 @@ SELECT * FROM Leitor;
 SELECT * FROM Funcionario;
 SELECT * FROM Emprestimo;
 
-UPDATE Leitor 
-SET nome = 'Ana Barbosa'
-Where id_leitor = 1;
-
-DELETE FROM Autor
-Where id_autor = 1;
-
-DELETE FROM Funcionario
-Where id_funcionario = 1;
-
-SELECT * FROM Emprestimo;
-
-UPDATE Autor
-SET id_autor = 1610
-Where id_autor = 2;
-
 
 
 
