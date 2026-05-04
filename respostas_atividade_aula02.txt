@@ -1,0 +1,88 @@
+RESPOSTAS - ATIVIDADE DE BANCO DE DADOS (AULA 02)
+
+4
+a) A operacao foi realizada com sucesso?
+Nao.
+
+b) Caso nao tenha sido, qual erro foi apresentado?
+Erro de chave estrangeira (foreign key constraint fails), indicando que o autor ainda esta sendo referenciado na tabela Livro.
+
+c) Qual restricao de integridade esta sendo aplicada nesse caso?
+ON DELETE RESTRICT.
+
+
+5
+a) O que aconteceu com os emprestimos associados a esse funcionario?
+Os registros de emprestimo foram mantidos, mas a coluna id_funcionario passou a ficar NULL.
+
+b) Qual regra de integridade foi aplicada?
+ON DELETE SET NULL.
+
+c) Explique por que esse comportamento ocorreu.
+Porque a regra SET NULL manda remover apenas a referencia ao funcionario excluido, sem apagar o registro de emprestimo.
+
+
+6
+Ao atualizar o identificador de um autor para 1610, os registros da tabela Livro ligados a esse autor tambem foram atualizados para 1610 no campo id_autor.
+Isso ocorreu por causa da regra ON UPDATE CASCADE.
+
+
+7
+i) Apagar todos os dados da tabela Emprestimo mantendo a estrutura:
+DELETE FROM Emprestimo;
+
+ii) Remover completamente a tabela Emprestimo:
+DROP TABLE Emprestimo;
+
+b) Diferenca entre as duas acoes:
+DELETE remove apenas os registros e mantem a tabela.
+DROP TABLE remove a tabela inteira (estrutura + dados).
+
+
+8
+a) Importancia das FOREIGN KEY:
+Garantem integridade referencial entre tabelas.
+
+b) Problemas sem essas restricoes:
+Dados inconsistentes, referencias inexistentes e erros de relacionamento.
+
+c) O que significa SET NULL:
+Quando o registro pai e removido/alterado, a FK na tabela filha vira NULL.
+
+d) Diferenca entre CASCADE e RESTRICT:
+CASCADE propaga alteracao/exclusao.
+RESTRICT bloqueia a operacao se houver dependencia.
+
+e) O que acontece ao deletar registro usado em outra tabela:
+Depende da regra da FK (pode bloquear, apagar em cascata ou setar NULL).
+
+f) Por que DELETE pode gerar erro:
+Porque pode violar restricoes de chave estrangeira.
+
+g) O que acontece com CASCADE:
+A alteracao/exclusao se propaga para registros relacionados.
+
+h) O que acontece com SET NULL:
+A referencia na tabela filha vira NULL e o registro continua existindo.
+
+i) Diferenca entre CREATE TABLE e ALTER TABLE:
+CREATE TABLE cria uma nova tabela.
+ALTER TABLE modifica uma tabela existente.
+
+j) Para que serve UPDATE:
+Atualizar valores de registros ja existentes.
+
+k) Para que serve DELETE:
+Remover registros de uma tabela.
+
+l) Importancia do WHERE em UPDATE e DELETE:
+Define quais registros serao afetados e evita alteracoes globais acidentais.
+
+m) O que pode acontecer com UPDATE sem WHERE:
+Todos os registros da tabela podem ser alterados.
+
+n) O que pode acontecer com DELETE sem WHERE:
+Todos os registros da tabela podem ser removidos.
+
+o) Por que bancos precisam de regras e restricoes:
+Para manter consistencia, confiabilidade, seguranca e qualidade dos dados.
